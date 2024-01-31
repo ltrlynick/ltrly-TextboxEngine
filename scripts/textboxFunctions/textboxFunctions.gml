@@ -165,7 +165,7 @@ function incrementCharCount()
 	    }
 		
 		
-		if (string_copy(text[line], char_count, 1) == ".")
+		if (string_copy(text[line], char_count, 1) == ".") //find a better way to do this man, come on, chop chop, ur an adult now, fix ur own problems
 		{
 			char_incr = 0;
 			
