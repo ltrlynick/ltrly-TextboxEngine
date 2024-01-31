@@ -1,1 +1,0 @@
-char_incr = char_spd;
