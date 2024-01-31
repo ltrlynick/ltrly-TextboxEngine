@@ -27,3 +27,8 @@ if (!done) //if its not done
 	    }
 	}
 }
+
+if(keyboard_check_pressed(vk_control))
+{
+	game_restart();	
+}
