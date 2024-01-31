@@ -17,7 +17,9 @@
   "MetaData": {
     "IDEVersion": "2023.6.0.92",
   },
-  "resources": [],
+  "resources": [
+    {"id":{"name":"obj_hello","path":"objects/obj_hello/obj_hello.yy",},},
+  ],
   "RoomOrderNodes": [],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
