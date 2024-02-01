@@ -1,4 +1,3 @@
-/*
 draw_sprite_ext(spr_textbox,0,tX-16,tY-20,8.5,1.9,0,c_white,1); 
 
 //////// RENDER CHARACTERS ///////
@@ -42,4 +41,3 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
 		letterOpacity[i]
     );
 }
-*/
