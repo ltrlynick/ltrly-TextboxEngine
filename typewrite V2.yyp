@@ -36,6 +36,7 @@
   "resources": [
     {"id":{"name":"textboxFunctions","path":"scripts/textboxFunctions/textboxFunctions.yy",},},
     {"id":{"name":"f_font","path":"fonts/f_font/f_font.yy",},},
+    {"id":{"name":"spr_textbox","path":"sprites/spr_textbox/spr_textbox.yy",},},
     {"id":{"name":"snd_type","path":"sounds/snd_type/snd_type.yy",},},
     {"id":{"name":"obj_type2","path":"objects/obj_type2/obj_type2.yy",},},
     {"id":{"name":"obj_type","path":"objects/obj_type/obj_type.yy",},},

@@ -1,3 +1,5 @@
+draw_sprite_ext(spr_textbox,0,tX-16,tY-20,7.6,2,0,c_white,1);
+
 //////// RENDER CHARACTERS ///////
 for (var i = 0; i < floor(char_count); i++) //render each character individually
 {	
@@ -35,5 +37,3 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
 		letterOpacity[i]
     );
 }
-
-draw_text(65,300,text[line]);

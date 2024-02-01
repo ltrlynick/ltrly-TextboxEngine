@@ -2,8 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function initTextbox()
 {
-	tX = 16; //start position of X
-	tY = 16; //start position of Y
+	tX = 50; //start position of X
+	tY = 50; //start position of Y
 
 	char = []; //this creates an empty array
 	charX = [];
