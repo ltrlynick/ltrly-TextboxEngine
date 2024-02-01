@@ -9,7 +9,8 @@ function initTextbox()
 	charX = [];
 	charY = [];
 
-	lineWidth = 45;
+	lineWidth = 38;
+	// move lineWidth for character icon space
 	lastSpace = 0;
 	stringLength = 0;
 	space = 0;
@@ -30,6 +31,9 @@ function initTextbox()
 	
 	charShake = [];
 	shake = [];
+	
+	font_xScale = 1; //experimentation lol
+	font_yScale = 1;
 	
 	recWidth = 0;
 	recHeight = 0;
@@ -58,7 +62,14 @@ function nextLine()
 			line += 1;
 			initTextbox();
 		}
-	}	
+	}
+	else
+	{
+		if (keyboard_check_pressed(vk_space))
+		{
+			instance_destroy();
+		}
+	}
 }
 
 /// @param _iteration The iteration of the for loop
@@ -200,13 +211,18 @@ function addLetter()
 {
 	var letter = string_copy(text[line], char_count, 1);
 	var charWidth = string_width(letter);
+	
+	var charWidthDifferenceSpacing = 0 //experimentation
 
 	audio_play_sound(snd_type,0,0);
-	audio_sound_pitch(snd_type,irandom_range(1,1.3));
+	audio_sound_pitch(snd_type,random_range(1,1.2));
+
+	if (font_yScale != 1) { charWidthDifferenceSpacing = (font_yScale)*3;} //experimentation
+	else { charWidthDifferenceSpacing = 0;} //experimentation
 
 	char[char_count - 1] = letter;
 	charX[char_count - 1] = charWidth * stringLength;
-	charY[char_count - 1] = space * 24;
+	charY[char_count - 1] = space * ( (string_width("A") * 2.5) + charWidthDifferenceSpacing); //experimentation
 	
 	var tempRecWidth = string_width("A") * stringLength;
 	

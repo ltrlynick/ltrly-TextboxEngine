@@ -1,4 +1,4 @@
-draw_sprite_ext(spr_textbox,0,tX-16,tY-20,7.6,2,0,c_white,1);
+draw_sprite_ext(spr_textbox,0,tX-16,tY-20,7.65,1.9,0,c_white,1); 
 
 //////// RENDER CHARACTERS ///////
 for (var i = 0; i < floor(char_count); i++) //render each character individually
@@ -28,11 +28,11 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
 		_ry = random_range(-_shakeAmplitude, _shakeAmplitude);
 	}
 
-    draw_text_ext_color(
-        tX + charX[i] + _rx,
+    draw_text_transformed_color( //go back to draw_text_color_ext if needed
+        tX + charX[i] + _rx, //+ 120 this is for character icon (rlly rough test)
         tY + charY[i] - letterComeDown[i] + _float_y + _ry,
         char[i],
-		100,100,
+		font_xScale,font_yScale,0, //scaling is experimentation, i might not need this
 		c_white,c_white,c_white,c_white,
 		letterOpacity[i]
     );
