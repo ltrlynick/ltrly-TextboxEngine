@@ -34,6 +34,7 @@
     "IDEVersion": "2023.6.0.92",
   },
   "resources": [
+    {"id":{"name":"f_pixelFont","path":"fonts/f_pixelFont/f_pixelFont.yy",},},
     {"id":{"name":"textboxFunctions","path":"scripts/textboxFunctions/textboxFunctions.yy",},},
     {"id":{"name":"f_font","path":"fonts/f_font/f_font.yy",},},
     {"id":{"name":"spr_textbox","path":"sprites/spr_textbox/spr_textbox.yy",},},

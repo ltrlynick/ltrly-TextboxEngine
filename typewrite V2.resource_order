@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"f_pixelFont","order":1,"path":"fonts/f_pixelFont/f_pixelFont.yy",},
     {"name":"obj_type2","order":1,"path":"objects/obj_type2/obj_type2.yy",},
   ],
 }

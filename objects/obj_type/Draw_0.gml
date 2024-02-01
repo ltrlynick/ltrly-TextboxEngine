@@ -1,4 +1,4 @@
-draw_sprite_ext(spr_textbox,0,tX-16,tY-20,7.65,1.9,0,c_white,1); 
+draw_sprite_ext(spr_textbox,0,tX-16,tY-20,8.5,1.9,0,c_white,1); 
 
 //////// RENDER CHARACTERS ///////
 for (var i = 0; i < floor(char_count); i++) //render each character individually
@@ -11,7 +11,11 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
 	
 	if (letterComeDown[i] > 0)
 	{
-		letterComeDown[i] = lerp(letterComeDown[i],0,.2);
+		letterComeDown[i] -= 4
+	}
+	else
+	{
+		letterComeDown[i] = 0;	
 	}
 	
 	if (float[i] == 1)

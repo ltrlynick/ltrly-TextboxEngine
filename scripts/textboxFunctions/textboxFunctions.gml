@@ -9,14 +9,14 @@ function initTextbox()
 	charX = [];
 	charY = [];
 
-	lineWidth = 38;
+	lineWidth = 34;
 	// move lineWidth for character icon space
 	lastSpace = 0;
 	stringLength = 0;
 	space = 0;
 
 	char_count = 0;
-	char_spd = 0.5;
+	char_spd = 0.8;
 	char_incr = char_spd;
 
 	done = false;
@@ -214,15 +214,18 @@ function addLetter()
 	
 	var charWidthDifferenceSpacing = 0 //experimentation
 
-	audio_play_sound(snd_type,0,0);
-	audio_sound_pitch(snd_type,random_range(1,1.2));
+	if( ceil(char_count) % 2 == 0)
+	{
+		audio_play_sound(snd_type,0,0);
+		audio_sound_pitch(snd_type,random_range(1,1.2));
+	}
 
 	if (font_yScale != 1) { charWidthDifferenceSpacing = (font_yScale)*3;} //experimentation
 	else { charWidthDifferenceSpacing = 0;} //experimentation
 
 	char[char_count - 1] = letter;
 	charX[char_count - 1] = charWidth * stringLength;
-	charY[char_count - 1] = space * ( (string_width("A") * 2.5) + charWidthDifferenceSpacing); //experimentation
+	charY[char_count - 1] = space * ( (string_width("A") * 2) + charWidthDifferenceSpacing); //experimentation
 	
 	var tempRecWidth = string_width("A") * stringLength;
 	
