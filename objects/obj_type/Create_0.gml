@@ -1,11 +1,10 @@
 draw_set_font(f_font);
 
-text[0] = "H/fello World/f/s!!!/s"
-text[1] = "Honestly, I'm surprised this textbox works this well.";
-text[2] = "And it doesn't look ugly too, which is a /fhuge/f plus.";
-text[3] = "Now, I could talk about something like our current...g/seopolitical situation.../sBut I'd rather not.";
-text[4] = "Especially not for this cool funky looking super duper mega textbox test :D";
-text[5] = "=/s)/s"
+text[0] = "N/fever gonna give you up!/f"; //debug testing lines
+text[1] = "N/fever gonna let you down!/f";
+text[2] = "N/fever gonna run arouuund and...";
+text[3] = "D/fesert you!";
+text[4] = "and now, Here is a very very very very veryyyyyyyy long line of text, so I can test the LineWidth and spacing and everything else thats bothering me";
 
 line = 0;
 

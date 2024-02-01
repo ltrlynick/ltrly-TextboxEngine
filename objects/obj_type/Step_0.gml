@@ -28,7 +28,19 @@ if (!done) //if its not done
 	}
 }
 
-if(keyboard_check_pressed(vk_control))
+if(keyboard_check(vk_left))
 {
-	game_restart();	
+	tX -= 1;
+}
+if(keyboard_check(vk_right))
+{
+	tX += 1;
+}
+if(keyboard_check(vk_up))
+{
+	tY -= 1;
+}
+if(keyboard_check(vk_down))
+{
+	tY += 1;
 }
