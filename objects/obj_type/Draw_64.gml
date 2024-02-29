@@ -42,6 +42,4 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
     );
 }
 
-//debug text
-draw_text(20,390,"tX: " + string(tX));
-draw_text(20,420,"tY: " + string(tY));
+ImGui.__Render();

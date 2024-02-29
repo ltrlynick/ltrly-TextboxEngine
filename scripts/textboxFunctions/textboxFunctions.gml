@@ -2,9 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function initTextbox()
 {
-	tX = 50; //start position of X
-	tY = 50; //start position of Y
-
+	subString = text[line];
+	
 	char = []; //this creates an empty array
 	charX = [];
 	charY = [];
@@ -16,10 +15,10 @@ function initTextbox()
 	space = 0;
 
 	char_count = 0;
-	char_spd = 0.8;
 	char_incr = char_spd;
 
 	done = false;
+	skip = false;
 
 	checkSymbol = 1;
 
@@ -43,12 +42,12 @@ function initTextbox()
 
 function fillUpCharEffectArrays()
 {
-	for(var i = 0; i < string_length(text[line]); i++)
+	for(var i = 0; i < string_length(subString); i++)
 	{
 		floatAngle[i] = 0;
 		float[i] = 0;
 		shake[i] = 0;
-		letterComeDown[i] = 15;
+		letterComeDown[i] = 15; //15;
 		letterOpacity[i] = 0;
 	}
 }
@@ -76,25 +75,25 @@ function nextLine()
 /// @param _symbol The symbol it searches for
 function checkFor(_iteration, _symbol)
 {
-    var _check = string_copy(text[line],_iteration,2);
+    var _check = string_copy(subString,_iteration,2);
             
     if (_check != _symbol)
     {
         return;
     }
     
-    text[line] = string_delete(text[line],_iteration,2);
+    subString = string_delete(subString,_iteration,2);
         
     var floatFound = 0;
     var shakeFound = 0;
     
-    for(var ii = _iteration-1; ii <= string_length(text[line]); ii++)
+    for(var ii = _iteration-1; ii <= string_length(subString); ii++)
     {
-        var _s = string_copy(text[line],ii,2);
+        var _s = string_copy(subString,ii,2);
         
         if (_s == _symbol)
         {
-            text[line] = string_delete(text[line],ii,2);
+            subString = string_delete(subString,ii,2);
             
             floatFound = effectSymbolFound(_symbol);
             shakeFound = effectSymbolFound(_symbol);
@@ -141,9 +140,9 @@ function checkSpace()
 	
 	var width = stringLength;
 	
-	for (var i = lastSpace + 1; i < string_length(text[line]); i++)
+	for (var i = lastSpace + 1; i < string_length(subString); i++)
 	{
-	    if (string_copy(text[line], i, 1) == " ")
+	    if (string_copy(subString, i, 1) == " ")
 		{
 	        break;
 		}
@@ -164,19 +163,19 @@ function incrementCharCount()
 	if (char_count == ceil(char_count))
 		char_count = ceil(char_count);
 	
-	if (char_count < string_length(text[line]))
+	if (char_count < string_length(subString))
 	{
-	    char_count += char_incr;
+		char_count += char_incr;
 		
 		//repurpose this part of the code
 		
-	    if (floor(lastSpace) != floor(char_count - 1) && string_char_at(text[line], char_count - 1) == " ") //if theres an empty space
+	    if (floor(lastSpace) != floor(char_count - 1) && string_char_at(subString, char_count - 1) == " ") //if theres an empty space
 	    {
 	        checkSpace();
 	    }
 		
 		
-		if (string_copy(text[line], char_count, 1) == ".") //find a better way to do this man, come on, chop chop, ur an adult now, fix ur own problems
+		if (string_copy(subString, char_count, 1) == ".") //find a better way to do this man, come on, chop chop, ur an adult now, fix ur own problems
 		{
 			char_incr = 0;
 			
@@ -185,7 +184,7 @@ function incrementCharCount()
 				alarm[0] = 30;	
 			}	
 		}
-		else if (string_copy(text[line], char_count, 1) == ",")
+		else if (string_copy(subString, char_count, 1) == ",")
 		{
 			char_incr = 0;
 			
@@ -202,14 +201,14 @@ function incrementCharCount()
 	}
 	else
 	{
-	    char_count = string_length(text[line]); //at the end char is the same number as the length
+	    char_count = string_length(subString); //at the end char is the same number as the length
 	    done = true;
 	}
 }
 
 function addLetter()
 {
-	var letter = string_copy(text[line], char_count, 1);
+	var letter = string_copy(subString, char_count, 1);
 	var charWidth = string_width(letter);
 	
 	var charWidthDifferenceSpacing = 0 //experimentation
@@ -222,19 +221,9 @@ function addLetter()
 
 	if (font_yScale != 1) { charWidthDifferenceSpacing = (font_yScale)*3;} //experimentation
 	else { charWidthDifferenceSpacing = 0;} //experimentation
-
+	
 	char[char_count - 1] = letter;
 	charX[char_count - 1] = charWidth * stringLength;
 	charY[char_count - 1] = space * ( (string_width("A") * 2) + charWidthDifferenceSpacing); //experimentation
-	
-	var tempRecWidth = string_width("A") * stringLength;
-	
-	if (tempRecWidth >= recWidth)
-	{
-		recWidth = tempRecWidth + string_width(".");
-	}
-	
-	recHeight = lerp(recHeight,(space+1)*24,.5);
-	
-	stringLength++;	
+	stringLength++;
 }
