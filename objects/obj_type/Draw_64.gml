@@ -1,4 +1,4 @@
-draw_sprite_ext(spr_textbox,0,tX-16,tY-20,8.5,1.9,0,c_white,1); 
+draw_sprite_ext(spr_textbox,0,tX-16,tY-20,8.5,1.9,0,c_white,1); //the textbox sprite
 
 //////// RENDER CHARACTERS ///////
 for (var i = 0; i < floor(char_count); i++) //render each character individually
@@ -21,8 +21,9 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
 	if (float[i] == 1)
 	{
 		floatAngle[i] += 0.2;
-		_float_y = sin(floatAngle[i])*2;
 	}
+	
+	_float_y = sin(floatAngle[i])*2;
 	
 	letterOpacity[i] += 0.2;	
 	
@@ -42,4 +43,4 @@ for (var i = 0; i < floor(char_count); i++) //render each character individually
     );
 }
 
-ImGui.__Render();
+ImGui.__Render(); //DEBUG, IGNORE

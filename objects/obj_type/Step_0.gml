@@ -6,7 +6,7 @@ if (!done) //if its not done
 {
 	if (checkSymbol)
 	{
-		for(var i = 0; i < string_length(text[line]); i++)
+		for(var i = 0; i < string_length(subString); i++) //FIXIT when skipping, effects kinda break
 		{
 			checkFor(i,"/f");
 			checkFor(i,"/s");
@@ -35,54 +35,59 @@ if (!done) //if its not done
 		}
 		else
 		{
-			var i = ceil(char_count);
+			//I CANT BE BOTHERED TO PUT THIS IN A FUNCTION RN
+			//deal w the nesting im too tired for this rn
 			
-			while(i <= string_length(text[line]))
+			//code here is just slightly modified version of functions
+			//I use for incrementCharCount() and addLetter();
+			
+			//I am planning to modify my functions so I wont have to do all this, but
+			//for now deal with it.
+			
+			var i = ceil(char_count); 
+			//typewriter on by default, as soon as the skip is activated,
+			//make the iterator be that character position we were at
+			
+			while(i <= string_length(subString)) //iterator here is our current char count
 			{
-				var letter = string_copy(text[line], i, 1);
+				var letter = string_copy(subString, i, 1);
 				var charWidth = string_width(letter);
 				var charWidthDifferenceSpacing = 0 //experimentation
 				
-				if (floor(lastSpace) != floor(i - 1) && string_char_at(text[line], i - 1) == " ") //if theres an empty space
+				if (floor(lastSpace) != floor(i - 1) && string_char_at(subString, i - 1) == " ") //if theres an empty space
 				{
-					lastSpace = floor(i - 1); //lastSpace is the position where we found it
-	
-					var width = stringLength;
-	
-					for (var a = lastSpace + 1; a < string_length(text[line]); a++)
-					{
-					    if (string_copy(text[line], a, 1) == " ")
-						{
-					        break;
-						}
-		
-					    width++;
-		
-					    if (width > lineWidth)
-						{
-						    space = space + 1;
-						    stringLength = 0;
-						    break;
-						}
-					}	
+					checkSpace(i);
 				}
 				
-				if((i-1) == -1)
+				if((i-1) == -1) //in case the player activates skip in the 0 character
 				{
 					i++;
 					continue;	
 				}
 				
-				char[i-1] = letter;
-				charX[i-1] = charWidth * stringLength;
-				charY[i-1] = space * ( (string_width("A") * 2) + charWidthDifferenceSpacing); //experimentation
-				stringLength++;
+				if (array_length(char) < floor(i)) 
+				{
+					char[i-1] = letter;
+					charX[i-1] = charWidth * stringLength;
+					charY[i-1] = space * ( (string_width("A") * 2) + charWidthDifferenceSpacing); //charWidthDifferenceSpacing experimentation
+				}
 				
-				show_debug_message(i);
+				// ------ FLOAT TEXT FIX WHEN SKIP ------ // 
+				// when ur home tomorrow try to understand why this works LOL
+				for (var b = 0; b < floor(i); b++)
+				{
+					if (float[b] == 1)
+					{
+						floatAngle[b] += 0.2;
+					}
+				}
+				
+				stringLength++;
 				i++;
 			}
 		
-			char_count = string_length(text[line]);
+			char_count = string_length(subString);
+			
 			done = true;
 		}
 	}

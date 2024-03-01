@@ -42,13 +42,13 @@ function initTextbox()
 
 function fillUpCharEffectArrays()
 {
-	for(var i = 0; i < string_length(subString); i++)
+	for(var i = 0; i < string_length(subString); i++) //fill up arrays so that they are ready
 	{
 		floatAngle[i] = 0;
 		float[i] = 0;
 		shake[i] = 0;
-		letterComeDown[i] = 15; //15;
-		letterOpacity[i] = 0;
+		letterComeDown[i] = letterComeDownY;
+		letterOpacity[i] = letterOpacityLevel;
 	}
 }
 
@@ -66,7 +66,8 @@ function nextLine()
 	{
 		if (keyboard_check_pressed(vk_space))
 		{
-			instance_destroy();
+			line = 0; //im looping the text rn for testing purposes
+			initTextbox();
 		}
 	}
 }
@@ -134,15 +135,15 @@ function findWhereSymbolEnds(_symbolCheck, _symbol, _effectFound, _effectFoundAr
 	}
 }
 
-function checkSpace()
+function checkSpace(_currentChar)
 {
-	lastSpace = floor(char_count - 1); //lastSpace is the position where we found it
+	lastSpace = floor(_currentChar - 1); //lastSpace is the position where we found it
 	
 	var width = stringLength;
 	
-	for (var i = lastSpace + 1; i < string_length(subString); i++)
+	for (var _iterator = lastSpace + 1; _iterator < string_length(subString); _iterator++)
 	{
-	    if (string_copy(subString, i, 1) == " ")
+	    if (string_copy(subString, _iterator, 1) == " ")
 		{
 	        break;
 		}
@@ -171,7 +172,7 @@ function incrementCharCount()
 		
 	    if (floor(lastSpace) != floor(char_count - 1) && string_char_at(subString, char_count - 1) == " ") //if theres an empty space
 	    {
-	        checkSpace();
+	        checkSpace(char_count);
 	    }
 		
 		
