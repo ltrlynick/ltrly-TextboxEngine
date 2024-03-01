@@ -44,7 +44,6 @@
     {"id":{"name":"snd_type","path":"sounds/snd_type/snd_type.yy",},},
     {"id":{"name":"ImGui","path":"scripts/ImGui/ImGui.yy",},},
     {"id":{"name":"ImGui_GM","path":"extensions/ImGui_GM/ImGui_GM.yy",},},
-    {"id":{"name":"obj_type2","path":"objects/obj_type2/obj_type2.yy",},},
     {"id":{"name":"obj_type","path":"objects/obj_type/obj_type.yy",},},
     {"id":{"name":"shdImGui","path":"shaders/shdImGui/shdImGui.yy",},},
     {"id":{"name":"ImGui_Misc","path":"scripts/ImGui_Misc/ImGui_Misc.yy",},},

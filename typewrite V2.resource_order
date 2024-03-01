@@ -23,7 +23,6 @@
     {"name":"obj_debug","order":2,"path":"objects/obj_debug/obj_debug.yy",},
     {"name":"spr_textbox","order":2,"path":"sprites/spr_textbox/spr_textbox.yy",},
     {"name":"ImGui_GM","order":1,"path":"extensions/ImGui_GM/ImGui_GM.yy",},
-    {"name":"obj_type2","order":1,"path":"objects/obj_type2/obj_type2.yy",},
     {"name":"shdImGui","order":3,"path":"shaders/shdImGui/shdImGui.yy",},
     {"name":"ImGui_Misc","order":2,"path":"scripts/ImGui_Misc/ImGui_Misc.yy",},
   ],
