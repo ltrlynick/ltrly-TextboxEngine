@@ -147,7 +147,7 @@ function checkSpace(_currentChar)
 		{
 	        break;
 		}
-		
+
 	    width++;
 		
 	    if (width > lineWidth)
